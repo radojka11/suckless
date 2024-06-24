@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gruvboxy, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-i", "-l", "20", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gruvboxy, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 /* custom commands */
 static const char *flameshot[]  = { "flameshot", NULL };
@@ -71,7 +71,7 @@ static const char *copyq[]  = { "copyq","toggle", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,	                    XK_p,      spawn,          SHCMD("color")},
+	{ MODKEY|ShiftMask,				XK_c,      spawn,          SHCMD("color")},
 	{ MODKEY,	                    XK_s,      spawn,          {.v = flameshot } },
 	{ MODKEY,	                    XK_a,      spawn,          {.v = copyq } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
